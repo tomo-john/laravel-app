@@ -7,6 +7,6 @@
   <title>SandBox</title>
 </head>
 <body>
-    <livewire:counter />
+    <livewire:sandbox.counter />
 </body>
 </html>
