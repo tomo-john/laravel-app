@@ -6,6 +6,7 @@ use App\Livewire\Settings\Profile;
 use App\Livewire\Settings\TwoFactor;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Features;
+use App\Http\Controllers\TestController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -37,3 +38,5 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/sandbox', function() {
     return view('sandbox');
 })->name('sandbox');
+
+Route::get('/test', [TestController::class, 'test'])->name('test');
