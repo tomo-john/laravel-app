@@ -8,8 +8,5 @@
 </head>
 <body>
     <livewire:counter />
-
-    {{-- こっちでもOK --}}
-    @livewire('counter')
 </body>
 </html>
