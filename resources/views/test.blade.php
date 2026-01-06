@@ -40,6 +40,15 @@
                         </flux:button>
                     </flux:modal.trigger>
                 </div>
+
+                {{-- 書籍学習用エリア --}}
+                <div class="rounded-xl border border-zinc-200 dark:border-zinc-700 p-6 bg-white dark:bg-zinc-800 space-y-4">
+                    <flux:heading size="lg">Users</flux:heading>
+
+                    @foreach ($users as $user)
+                        <p class="text-xs text-gray-500">{{ $user->name }}</p>
+                    @endforeach
+                </div>
             </div>
 
             {{-- Modal --}}
