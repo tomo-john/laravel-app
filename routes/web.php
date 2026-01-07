@@ -7,6 +7,7 @@ use App\Livewire\Settings\TwoFactor;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Features;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\PostController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -40,3 +41,5 @@ Route::get('/sandbox', function() {
 })->name('sandbox');
 
 Route::get('/test', [TestController::class, 'test'])->name('test');
+
+Route::get('post/create', [PostController::class, 'create']);
