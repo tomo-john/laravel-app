@@ -9,7 +9,7 @@
             {{-- ヘッダー --}}
             <div>
                 <flux:heading size="xl" level="1">Flux Playground</flux:heading>
-                <flux:subheading>Fluxの基本を試すテストページ</flux:subheading>
+                <flux:subheading>テストページ</flux:subheading>
                 <a href="{{ route('home') }}" class="inline-block mt-2">
                     <flux:button size="xs" variant="filled" color="zinc" icon="arrow-down-tray">home</flux:button>
                 </a>
@@ -46,11 +46,24 @@
                     </flux:modal.trigger>
                 </div>
 
-                {{-- Livewire呼んでみる --}}
+                {{-- Livewire --}}
                 <div class="rounded-xl border border-zinc-200 dark:border-zinc-700 p-6 bg-white dark:bg-zinc-800 space-y-4">
                     <flux:heading size="lg">Users</flux:heading>
 
                     <livewire:sandbox.user-list />
+                </div>
+
+                {{-- Alpine.js --}}
+                <div class="rounded-xl border border-zinc-200 dark:border-zinc-700 p-6 bg-white dark:bg-zinc-800 space-y-4">
+                    <flux:heading size="lg">Alpine.js</flux:heading>
+
+                    <div x-data="{ open: false }">
+                        <button @click="open = !open">開く</button>
+
+                        <div x-show="open">
+                            🐶こんにちわん
+                        </div>
+                    </div>
                 </div>
             </div>
 
