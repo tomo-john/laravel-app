@@ -1,9 +1,17 @@
 <x-layouts.app>
     <div class="max-w-7xl mx-auto px-6">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="font-semibold text-xl text-gray-200 leading-tight">
             フォーム
         </h2>
-        <form>
+
+        @if(session('message'))
+            <div class="text-red-600 font-bold">
+                  {{ session('message') }}
+            </div>
+        @endif
+        <form method="post" action="{{ route('post.store') }}">
+            @csrf
+
             <div class="mt-8">
                 <div class="w-full flex flex-col">
                     <label for="title" class="font-semibold mt-4">件名</label>
