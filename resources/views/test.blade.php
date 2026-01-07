@@ -10,6 +10,9 @@
             <div>
                 <flux:heading size="xl" level="1">Flux Playground</flux:heading>
                 <flux:subheading>Fluxの基本を試すテストページ</flux:subheading>
+                <a href="{{ route('home') }}" class="inline-block mt-2">
+                    <flux:button size="xs" variant="filled" color="zinc" icon="arrow-down-tray">home</flux:button>
+                </a>
             </div>
 
             <flux:separator variant="subtle" />
@@ -23,9 +26,11 @@
 
                     <p class="mt-2 text-sm text-zinc-600 dark:text-zinc-400">Button</p>
 
-                    <flux:button>default</flux:button>
-                    <flux:button variant="primary">primary</flux:button>
-                    <flux:button variant="danger">danger</flux:button>
+                    <div class="flex gap-4">
+                        <flux:button>default</flux:button>
+                        <flux:button variant="primary">primary</flux:button>
+                        <flux:button variant="danger">danger</flux:button>
+                    </div>
                 </div>
 
                 {{-- Right --}}
@@ -41,13 +46,11 @@
                     </flux:modal.trigger>
                 </div>
 
-                {{-- 書籍学習用エリア --}}
+                {{-- Livewire呼んでみる --}}
                 <div class="rounded-xl border border-zinc-200 dark:border-zinc-700 p-6 bg-white dark:bg-zinc-800 space-y-4">
                     <flux:heading size="lg">Users</flux:heading>
 
-                    @foreach ($users as $user)
-                        <p class="text-xs text-gray-500">{{ $user->name }}</p>
-                    @endforeach
+                    <livewire:sandbox.user-list />
                 </div>
             </div>
 
