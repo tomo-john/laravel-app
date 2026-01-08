@@ -43,8 +43,8 @@ Route::get('/sandbox', function() {
 Route::get('/test', [TestController::class, 'test'])->name('test')->middleware('can:test');
 
 // 複数のルートに複数のミドルウェアを設定
-Route::middleware(['auth', 'admin'])->group(function () {
-    Route::get('post/create', [PostController::class, 'create']);
+Route::middleware(['auth'])->group(function () {
+    Route::get('post', [PostController::class, 'index'])->name('post.index');
+    Route::get('post/create', [PostController::class, 'create'])->name('post.create');
     Route::post('post', [PostController::class, 'store'])->name('post.store');
-    Route::get('post', [PostController::class, 'index']);
 });
