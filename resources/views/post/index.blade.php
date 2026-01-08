@@ -17,7 +17,7 @@
                     <hr class="mt-4">
                     <p class="mt-4 p-4 text-gray-600">{{ $post->body }}</p>
                     <div class="flex justify-end p-4 text-sm text-gray-400 font-semibold">
-                        {{ $post->created_at }}
+                        {{ $post->created_at }} / {{ $post->user->name ?? '匿名' }}
                     </div>
                 </div>
             @endforeach
