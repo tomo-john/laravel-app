@@ -40,7 +40,7 @@ Route::get('/sandbox', function() {
     return view('sandbox');
 })->name('sandbox');
 
-Route::get('/test', [TestController::class, 'test'])->name('test');
+Route::get('/test', [TestController::class, 'test'])->name('test')->middleware('can:test');
 
 // 複数のルートに複数のミドルウェアを設定
 Route::middleware(['auth', 'admin'])->group(function () {
