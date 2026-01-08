@@ -1,8 +1,11 @@
 <x-layouts.app>
     <div class="max-w-7xl mx-auto px-6">
-        <h2 class="font-semibold text-xl text-gray-200 leading-tight">
-            一覧表示
-        </h2>
+        <div class="flex justify-between">
+            <h2 class="font-semibold text-xl text-gray-200 leading-tight">
+                一覧表示
+            </h2>
+            <a href="{{ route('post.create') }}" class="inline-block mr-8">新規作成</a>
+        </div>
 
         @if(session('message'))
             <div class="text-red-600 font-bold">
