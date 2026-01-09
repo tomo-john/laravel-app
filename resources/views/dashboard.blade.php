@@ -8,8 +8,14 @@
                 <div class="mt-2 text-3xl font-bold">{{ \App\Models\User::count() }}</div>
             </div>
           
-            <div class="relative aspect-video overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
-                <x-placeholder-pattern class="absolute inset-0 size-full stroke-gray-900/20 dark:stroke-neutral-100/20" />
+            <!-- プレイグラウンド -->
+            <div class="rounded-xl border p-6">
+                <div class="text-sm text-gray-500">Dogs</div>
+                <div class="mt-2 text-3xl font-bold">
+                    <flux:button icon="home">
+                        <i class="fa-solid fa-dog text-pink-400"></i>
+                    </flux:button>
+                </div>
             </div>
             
             <!-- デフォルトのプレースホルダ -->
