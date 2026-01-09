@@ -12,9 +12,16 @@
             <div class="rounded-xl border p-6">
                 <div class="text-sm text-gray-500">Dogs</div>
                 <div class="mt-2 text-3xl font-bold">
-                    <flux:button icon="home">
-                        <i class="fa-solid fa-dog text-pink-400"></i>
-                    </flux:button>
+                    <div x-data="{ liked: false }">
+                        <flux:button @click="liked = !liked" class="transition">
+                            <i class="fa-solid fa-dog text-3xl transition-all duration-300"
+                               :class="{
+                                  'text-pink-400 scale-125 -translate-y-1': liked,
+                                  'text-gray-400 hover:scale-110 hover:rotate-6': !liked
+                               }"
+                            ></i>
+                        </flux:button>
+                    </div>
                 </div>
             </div>
             
