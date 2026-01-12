@@ -22,15 +22,19 @@
 
                 <div class="flex justify-end gap-2 mb-2">
 
-                    <a href="{{ route('post.edit', $post) }}">
-                        <flux:button variant="primary" color="sky" class="cursor-pointer">編集</flux:button>
-                    </a>
+                    @can('update-post', $post)
+                        <a href="{{ route('post.edit', $post) }}">
+                            <flux:button variant="primary" color="sky" class="cursor-pointer">編集</flux:button>
+                        </a>
+                    @endcan
 
-                    <form method="post" action="{{ route('post.destroy', $post) }}">
-                        @csrf
-                        @method('delete')
-                        <flux:button variant="danger" type="submit" class="cursor-pointer">削除</flux:button>
-                    </form>
+                    @can('delete-post', $post)
+                        <form method="post" action="{{ route('post.destroy', $post) }}">
+                            @csrf
+                            @method('delete')
+                            <flux:button variant="danger" type="submit" class="cursor-pointer">削除</flux:button>
+                        </form>
+                    @endcan
                 </div>
 
                 <hr class="w-full">
