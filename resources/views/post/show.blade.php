@@ -20,10 +20,17 @@
                     {{ $post->title }}
                 </p>
 
-                <div class="text-right">
+                <div class="flex justify-end gap-2 mb-2">
+
                     <a href="{{ route('post.edit', $post) }}">
                         <flux:button variant="primary" color="sky" class="cursor-pointer">編集</flux:button>
                     </a>
+
+                    <form method="post" action="{{ route('post.destroy', $post) }}">
+                        @csrf
+                        @method('delete')
+                        <flux:button variant="danger" type="submit" class="cursor-pointer">削除</flux:button>
+                    </form>
                 </div>
 
                 <hr class="w-full">
