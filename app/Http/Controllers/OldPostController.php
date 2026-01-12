@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
 use Illuminate\Http\Request;
+use App\Models\Post;
 
-class PostController extends Controller
+class OldPostController extends Controller
 {
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::with('user')->get();
         return view('post.index', compact('posts'));
     }
 
@@ -30,7 +30,8 @@ class PostController extends Controller
         $post = Post::create($validated);
 
         $request->session()->flash('message', '保存しました');
-        return redirect()->route('post.index');
+        return back();
+        // return back()->with('message', '保存しました');
     }
 
     public function show(Post $post)
@@ -55,7 +56,7 @@ class PostController extends Controller
         $post->update($validated);
 
         $request->session()->flash('message', '更新しました');
-        return redirect()->route('post.index');
+        return back();
     }
 
     public function destroy(Request $request, Post $post)

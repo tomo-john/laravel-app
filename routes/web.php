@@ -36,19 +36,13 @@ Route::middleware(['auth'])->group(function () {
         ->name('two-factor.show');
 });
 
+// sandbox
 Route::get('/sandbox', function() {
     return view('sandbox');
 })->name('sandbox');
 
+// test
 Route::get('/test', [TestController::class, 'test'])->name('test')->middleware('can:test');
 
-// 複数のルートに複数のミドルウェアを設定
-Route::middleware(['auth'])->group(function () {
-    Route::get('post', [PostController::class, 'index'])->name('post.index');
-    Route::get('post/create', [PostController::class, 'create'])->name('post.create');
-    Route::post('post', [PostController::class, 'store'])->name('post.store');
-    Route::get('post/show/{post}', [PostController::class, 'show'])->name('post.show');
-    Route::get('post/{post}/edit', [PostController::class, 'edit'])->name('post.edit');
-    Route::patch('post/{post}', [PostController::class, 'update'])->name('post.update');
-    Route::delete('post/{post}', [PostController::class, 'destroy'])->name('post.destroy');
-});
+// Post
+Route::resource('post', PostController::class);
