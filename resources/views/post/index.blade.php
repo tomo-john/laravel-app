@@ -3,6 +3,7 @@
         <div class="flex justify-between">
             <h2 class="font-semibold text-xl text-gray-200 leading-tight">
                 一覧表示
+                <i class="fa-solid fa-list"></i>
             </h2>
             <a href="{{ route('post.create') }}" class="inline-block mr-8">新規作成</a>
         </div>
@@ -17,6 +18,7 @@
             @foreach ($posts as $post)
                 <div class="mt-6 p-6 bg-white rounded-2xl shadow-md border border-gray-500">
                     <p class="p-4 text-lg text-gray-500 font-semibold">
+                        件名:
                         <a href="{{ route('post.show', $post) }}" class="text-blue-600">
                             {{ $post->title }}
                         </a>
