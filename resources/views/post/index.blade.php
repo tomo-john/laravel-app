@@ -16,7 +16,11 @@
         <div class="mx-auto px-6">
             @foreach ($posts as $post)
                 <div class="mt-6 p-6 bg-white rounded-2xl shadow-md border border-gray-500">
-                    <p class="p-4 text-lg text-gray-500 font-semibold">{{ $post->title }}</p>
+                    <p class="p-4 text-lg text-gray-500 font-semibold">
+                        <a href="{{ route('post.show', $post) }}" class="text-blue-600">
+                            {{ $post->title }}
+                        </a>
+                    </p>
                     <hr class="mt-4">
                     <p class="mt-4 p-4 text-gray-600">{{ $post->body }}</p>
                     <div class="flex justify-end p-4 text-sm text-gray-400 font-semibold">

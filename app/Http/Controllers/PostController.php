@@ -33,4 +33,9 @@ class PostController extends Controller
         return back();
         // return back()->with('message', '保存しました');
     }
+
+    public function show(Post $post)
+    {
+        return view('post.show', compact('post'));
+    }
 }
