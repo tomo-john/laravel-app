@@ -8,11 +8,7 @@
             <a href="{{ route('post.create') }}" class="inline-block mr-8">新規作成</a>
         </div>
 
-        @if(session('message'))
-            <div class="text-red-600 font-bold">
-                  {{ session('message') }}
-            </div>
-        @endif
+        <x-message :message="session('message')" />
 
         <div class="mx-auto px-6">
             @foreach ($posts as $post)
