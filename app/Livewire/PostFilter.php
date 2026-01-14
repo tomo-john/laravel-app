@@ -11,11 +11,10 @@ class PostFilter extends Component
 
     public function render()
     {
-        $query = Post::query();
-        if (!empty($this->search)) {
-            $query->where('title', 'like', '%' . $this->search . '%');
-        }
-        $posts = $query->get();
+        $posts = Post::query()
+        ->when($this->search, fn($q) =>
+            $q->where('title', 'like', '%' . $this->search . '%')
+        )->get();
         return view('livewire.post-filter', compact('posts'));
     }
 }
