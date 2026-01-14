@@ -20,6 +20,7 @@
                 <!-- Postページ -->
                 <flux:navlist.group :heading="__('Post Management')" class="grid">
                     <flux:navlist.item icon="newspaper" :href="route('post.index')" :current="request()->routeIs('post.index')" wire:navigate>{{ __('Post List') }}</flux:navlist.item>
+                    <flux:navlist.item icon="rocket-launch" :href="route('post.create')" :current="request()->routeIs('post.create')" wire:navigate>{{ __('Post Create') }}</flux:navlist.item>
                 </flux:navlist.group>
             </flux:navlist>
 
