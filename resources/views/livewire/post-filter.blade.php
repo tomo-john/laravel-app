@@ -1,4 +1,5 @@
 <div>
+    <input wire:model.live="search" type="text" placeholder="検索(タイトル)" class="border rounded-xl p-2 my-4 w-full">
     @foreach ($posts as $post)
         <div wire:key="post-{{ $post->id }}" class="mt-6 p-6 bg-white rounded-2xl shadow-md border border-gray-500">
             <p class="p-4 text-lg text-gray-500 font-semibold">
