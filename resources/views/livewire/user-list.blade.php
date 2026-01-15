@@ -1,5 +1,6 @@
 <div class="p-4">
     <h1 class="text-xl font-bold mb-4">ユーザー一覧</h1>
+    <div class="my-4">{{ $users->links() }}</div>
     <table class="w-full text-left border">
         <thead>
             <tr>
