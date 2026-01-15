@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Features;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\PostController;
+use App\Livewire\UserList;
 
 Route::get('/', function () {
     return view('welcome');
@@ -46,3 +47,6 @@ Route::get('/test', [TestController::class, 'test'])->name('test')->middleware('
 
 // Post
 Route::resource('post', PostController::class);
+
+// UserList
+Route::get('/users', UserList::class)->name('users.list');
