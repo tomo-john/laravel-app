@@ -35,6 +35,13 @@ Route::middleware(['auth'])->group(function () {
             ),
         )
         ->name('two-factor.show');
+
+    // Post
+    Route::resource('post', PostController::class);
+    // UserList
+    Route::get('/users', UserList::class)
+        ->middleware('can:admin')
+        ->name('users.list');
 });
 
 // sandbox
@@ -45,10 +52,3 @@ Route::get('/sandbox', function() {
 // test
 Route::get('/test', [TestController::class, 'test'])->name('test')->middleware('can:test');
 
-// Post
-Route::resource('post', PostController::class);
-
-// UserList
-Route::get('/users', UserList::class)
-    ->middleware('can:admin')
-    ->name('users.list');
