@@ -14,6 +14,7 @@ class PostFilter extends Component
         $posts = Post::query()
         ->when($this->search, fn($q) =>
             $q->where('title', 'like', '%' . $this->search . '%')
+            ->orWhere('body', 'like', '%' . $this->search . '%')
         )->get();
         return view('livewire.post-filter', compact('posts'));
     }
