@@ -49,4 +49,6 @@ Route::get('/test', [TestController::class, 'test'])->name('test')->middleware('
 Route::resource('post', PostController::class);
 
 // UserList
-Route::get('/users', UserList::class)->name('users.list');
+Route::get('/users', UserList::class)
+    ->middleware('can:admin')
+    ->name('users.list');
